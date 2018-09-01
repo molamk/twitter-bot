@@ -1,6 +1,7 @@
 import json
-from tweet_utils import extract_keyword
+
 from tweet_author import TweetAuthor
+from tweet_utils import extract_keyword
 
 
 class TweetStatus():

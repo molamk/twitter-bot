@@ -1,27 +1,18 @@
 #!/usr/local/bin/python3
 
-import tweepy
-import pprint
-from tweet_status import TweetStatus
+import os
 
 import dotenv
-import os
+import tweepy
+
+from tweet_listener import TweetListener
+from tweet_status import TweetStatus
 
 dotenv.load_dotenv()
 
 
-class StdOutListener(tweepy.StreamListener):
-    def on_data(self, data):
-        pprint.pprint(TweetStatus(data))
-        print(100 * '*')
-        return True
-
-    def on_error(self, status):
-        print(status)
-
-
 def main():
-    listener = StdOutListener()
+    listener = TweetListener()
     auth = tweepy.OAuthHandler(
         os.getenv("TWITTER_CONSUMER_KEY"), os.getenv("TWITTER_CONSUMER_SECRET"))
     auth.set_access_token(
