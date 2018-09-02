@@ -10,6 +10,8 @@ from tweet_status import TweetStatus
 
 dotenv.load_dotenv()
 
+keywords = ['bitcoin', 'ethereum', 'ripple']
+
 
 def main():
     listener = TweetListener()
@@ -19,7 +21,7 @@ def main():
         os.getenv("TWITTER_ACCESS_TOKEN"), os.getenv("TWITTER_ACCESS_TOKEN_SECRET"))
 
     stream = tweepy.Stream(auth, listener, tweet_mode='extended')
-    stream.filter(track=['trump'])
+    stream.filter(track=keywords)
 
 
 if __name__ == '__main__':
