@@ -17,6 +17,8 @@
 
 ```bash
 # Create a Twitter app and grab your credenials
+
+# Install dependencies
 pip3 install git+https://github.com/tweepy/tweepy
 pip3 install python-dotenv
 ```
